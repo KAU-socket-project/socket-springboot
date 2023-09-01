@@ -22,12 +22,7 @@ public class ChatRoomService {
 
     public ChatRoom findById(Long id) {
         Optional<ChatRoom> optionalChatRoom = chatRoomRepository.findById(id);
-        if (optionalChatRoom.isPresent()) {
-            return optionalChatRoom.get();
-        } else {
-            log.error("존재하지 않는 채팅방 ID입니다. : {}", id);
-            return null;
-        }
+        return optionalChatRoom.get();
     }
 
     public List<ChatRoom> findAll() {
