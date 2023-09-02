@@ -9,6 +9,4 @@ public class Chat {
     private String senderName;
     private String text;
     private Timestamp createdTime;
-
-
 }
