@@ -1,11 +1,11 @@
 const stompClient = new StompJs.Client({
-    //socket server 설정
+    //web socket server 설정
     brokerURL: 'ws://localhost:8080/endpoint'
 });
 
 stompClient.activate();
 
-//socket 연결 해제
+//web socket 연결 해제
 //stompClient.deactivate();
 
 const myName = prompt('이름을 입력하세요.');
