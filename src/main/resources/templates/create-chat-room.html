@@ -9,7 +9,7 @@
 <form role="form" action="/chat/create" th:object="${chatRoom}" method="post">
   <div>
     <label th:for="roomName">방 제목</label>
-    <input type="text" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
+    <input type="text" autocomplete="off" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
   </div>
   <button type="submit">만들기</button>
 </form>
