@@ -1,44 +1,30 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <title th:text="${roomName}"></title>
-  <link href="/css/chat-room.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Create chat room</title>
+  <link rel="stylesheet" href="/css/create-form.css">
 </head>
 <body>
-<div class="chat-container">
-  <div class="chat-header">
-    <h1 th:text="${roomName}"></h1>
-    <!-- root page로 이동 -->
-    <a href="/" id="exitRoom" class="btn btn-danger">Exit</a>
-  </div>
-
-  <div class="chat-log">
-    <table id="conversation" class="table">
-      <thead>
-      <!--      <tr>-->
-      <!--        <th>Chat </th>-->
-      <!--      </tr>-->
-      </thead>
-
-      <tbody id="chatLog">
-      </tbody>
-
-    </table>
-  </div>
-
-  <div class="chat-input">
-    <form id="submit-form">
-      <div class="input-group">
-        <input type="text" id="text" class="form-control" placeholder="메세지를 입력하세요">
-        <button id="publish" class="btn btn-primary">send</button>
+<form role="form" action="/chat/create" th:object="${chatRoom}" method="post">
+  <div class="form-content">
+    <div class="input-group">
+      <!--      <label th:for="roomName">KAU Chat Room</label>-->
+    </div>
+    <div class="logo-container">
+      <div class="logo-item">
+        <img src="/img/kau.png" alt="kau 로고" class="logo">
       </div>
-    </form>
+      <div class="logo-item">
+        <img src="/img/kauEn.jpeg" alt="kau En 로고" class="logo">
+      </div>
+    </div>
+    <div class="input-group">
+      <input type="text" autocomplete="off" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
+    </div>
+    <br>
+    <button type="submit">만들기</button>
   </div>
-
-  <!-- thymeleaf to js -->
-  <script>const roomId = [[${roomId}]];</script>
-  <script src="/js/chat-room.js"></script>
-</div>
+</form>
 </body>
 </html>
