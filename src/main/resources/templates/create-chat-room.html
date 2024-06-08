@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Create chat room</title>
-  <link rel="stylesheet" href="/css/create-form.css">
+  <title th:text="${roomName}"></title>
+  <link href="/css/chat-room.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
 </head>
 <body>
-<form role="form" action="/chat/create" th:object="${chatRoom}" method="post">
-  <div>
-    <label th:for="roomName">방 제목</label>
-    <input type="text" autocomplete="off" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
+<div class="chat-container">
+  <div class="chat-header">
+    <h1 th:text="${roomName}"></h1>
+    <!-- root page로 이동 -->
+    <a href="/" id="exitRoom" class="btn btn-danger">Exit</a>
   </div>
-  <button type="submit">만들기</button>
-</form>
+
+  <div class="chat-log">
+    <table id="conversation" class="table">
+      <thead>
+      <!--      <tr>-->
+      <!--        <th>Chat </th>-->
+      <!--      </tr>-->
+      </thead>
+
+      <tbody id="chatLog">
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="chat-input">
+    <form id="submit-form">
+      <div class="input-group">
+        <input type="text" id="text" class="form-control" placeholder="메세지를 입력하세요">
+        <button id="publish" class="btn btn-primary">send</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- thymeleaf to js -->
+  <script>const roomId = [[${roomId}]];</script>
+  <script src="/js/chat-room.js"></script>
+</div>
 </body>
 </html>
