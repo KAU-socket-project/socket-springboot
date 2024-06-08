@@ -1,6 +1,6 @@
 const stompClient = new StompJs.Client({
     //web socket server 설정
-    brokerURL: 'ws://43.201.96.168:8080/endpoint'
+    brokerURL: 'ws://43.201.114.163:8080/endpoint'
 })
 
 stompClient.activate();
