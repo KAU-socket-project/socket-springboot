@@ -13,5 +13,17 @@ spring:
         show_sql: true
         format_sql: true
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL.USER}
+    password: ${MAIL.PASSWORD} # app password
+    properties:
+      mail:
+        smtp:
+          auth: true # default: false
+          timeout: 5000
+          starttls:
+            enable: true # TLS 활성화 여부(default: false)
   thymeleaf:
     prefix: classpath:/templates/
