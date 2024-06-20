@@ -2,6 +2,7 @@ package com.example.stompsession.controller;
 
 import com.example.stompsession.domain.Chat;
 import com.example.stompsession.domain.ChatRoom;
+import com.example.stompsession.domain.email.request.EmailRequest;
 import com.example.stompsession.service.ChatRoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -22,6 +23,7 @@ public class ChatRoomController {
     @GetMapping("")
     public String mainPage(Model model) {
         model.addAttribute("chatRooms", chatRoomService.findAll());
+        model.addAttribute("emailRequest", new EmailRequest());
         return "main";
     }
 
