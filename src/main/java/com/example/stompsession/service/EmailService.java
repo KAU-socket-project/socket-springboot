@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
+@Service
 @Slf4j
 @RequiredArgsConstructor
-@Service
 public class EmailService {
 
     private final JavaMailSender javaMailSender;
