@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@RequiredArgsConstructor
 @Slf4j
 public class MailSendController {
 
     private final EmailService emailService;
+  
+    public MailSendController(EmailService emailService) {
+        this.emailService = emailService;
+    }
 
     @PostMapping("/email/send")
     public ResponseEntity<Void> sendEmail(@ModelAttribute EmailRequest emailRequest) {
@@ -26,6 +29,4 @@ public class MailSendController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-
 }

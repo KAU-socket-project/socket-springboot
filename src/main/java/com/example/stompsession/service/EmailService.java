@@ -32,7 +32,6 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
-            System.out.println("emailRequest = " + emailRequest.getEmail());
             EmailMessage emailMessage = EmailMessage.builder()
                 .to(emailRequest.getEmail())
                 .subject("[INTRO] 서비스 소개")
