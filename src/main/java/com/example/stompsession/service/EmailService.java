@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
-@Service
 @Slf4j
 @RequiredArgsConstructor
+@Service
 public class EmailService {
 
     private final JavaMailSender javaMailSender;
@@ -32,7 +32,6 @@ public class EmailService {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
-            System.out.println("emailRequest = " + emailRequest.getEmail());
             EmailMessage emailMessage = EmailMessage.builder()
                 .to(emailRequest.getEmail())
                 .subject("[INTRO] 서비스 소개")
