@@ -10,15 +10,15 @@
   <div class="chat-header">
     <h1 th:text="${roomName}"></h1>
     <!-- root page로 이동 -->
-    <a href="/" id="exitRoom" class="btn btn-danger">나가기</a>
+    <a href="/" id="exitRoom" class="btn btn-danger">Exit</a>
   </div>
 
   <div class="chat-log">
     <table id="conversation" class="table">
       <thead>
-      <tr>
-        <th>Chat Log</th>
-      </tr>
+      <!--      <tr>-->
+      <!--        <th>Chat </th>-->
+      <!--      </tr>-->
       </thead>
 
       <tbody id="chatLog">
@@ -30,8 +30,8 @@
   <div class="chat-input">
     <form id="submit-form">
       <div class="input-group">
-        <input type="text" id="text" class="form-control" placeholder="Input text here...">
-        <button id="publish" class="btn btn-primary">Chat</button>
+        <input type="text" id="text" class="form-control" placeholder="메세지를 입력하세요">
+        <button id="publish" class="btn btn-primary">send</button>
       </div>
     </form>
   </div>

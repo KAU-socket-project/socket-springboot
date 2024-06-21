@@ -7,11 +7,24 @@
 </head>
 <body>
 <form role="form" action="/chat/create" th:object="${chatRoom}" method="post">
-  <div>
-    <label th:for="roomName">방 제목</label>
-    <input type="text" autocomplete="off" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
+  <div class="form-content">
+    <div class="input-group">
+      <!--      <label th:for="roomName">KAU Chat Room</label>-->
+    </div>
+    <div class="logo-container">
+      <div class="logo-item">
+        <img src="/img/kau.png" alt="kau 로고" class="logo">
+      </div>
+      <div class="logo-item">
+        <img src="/img/kauEn.jpeg" alt="kau En 로고" class="logo">
+      </div>
+    </div>
+    <div class="input-group">
+      <input type="text" autocomplete="off" th:field="*{roomName}" placeholder="방 제목을 입력하세요">
+    </div>
+    <br>
+    <button type="submit">만들기</button>
   </div>
-  <button type="submit">만들기</button>
 </form>
 </body>
 </html>

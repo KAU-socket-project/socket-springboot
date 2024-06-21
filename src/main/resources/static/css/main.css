@@ -1,13 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #002666;
   margin: 0;
   padding: 0;
 }
 
 div {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -22,6 +22,22 @@ a {
   color: #ffffff;
   text-decoration: none;
   border-radius: 5px;
+}
+.logo-item {
+  text-align: center; /* 로고 이미지를 가운데 정렬 */
+}
+
+form {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.logo-item {
+  text-align: center; /* 로고 이미지를 가운데 정렬 */
 }
 
 table {

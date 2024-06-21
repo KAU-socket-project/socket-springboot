@@ -1,6 +1,6 @@
 const stompClient = new StompJs.Client({
-    //web socket server 설정
-    brokerURL: 'ws://localhost:8080/endpoint'
+    //web socket server 설정 43.201.114.163
+    brokerURL: 'ws://43.201.114.163:8080/endpoint'
 });
 
 stompClient.activate();
@@ -48,9 +48,12 @@ function showChat(message) {
 
     // 전체 container
     const messageContainer = document.createElement("div");
-    messageContainer.className = "message-container";
+
     if (message.senderName === myName) {
+        messageContainer.className = "message-container_2";
         messageContainer.classList.add("sent-by-me");
+    }else {
+        messageContainer.className = "message-container";
     }
 
     // 발신자 이름

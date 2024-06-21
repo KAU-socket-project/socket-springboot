@@ -4,11 +4,43 @@
   <meta charset="UTF-8">
   <title>Chat Service</title>
   <link rel="stylesheet" href="/css/main.css">
+  <script>
+    function sendEmailAlert() {
+      const email = prompt("이메일 주소를 입력해주세요.");
+      if (email) {
+        fetch('/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ to: email })
+        })
+        .then(response => {
+          if (response.ok) {
+            alert("이메일이 전송되었습니다.");
+          } else {
+            alert("이메일 전송에 실패했습니다.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("이메일 전송 중 오류가 발생했습니다.");
+        });
+      }
+    }
+  </script>
 </head>
 <body>
+<form action="/email/send" method="post" th:object="${emailRequest}">
+  <label for="email">이메일</label>
+  <input type="text" id="email" th:field="*{email}">
+  <button type="submit">이메일 전송</button>
+</form>
 <div>
   <a href="/chat/create">채팅방 만들기</a>
-
+  <div class="logo-item">
+    <img src="/img/hangboong2.webp" width="250px"></img>
+  </div>
   <div>
     <table>
       <thead>
@@ -23,7 +55,6 @@
         <td th:text="${chatRoom.id}"></td>
         <td th:text="${chatRoom.roomName}"></td>
         <td><a th:href="@{/chat/{id}(id=${chatRoom.id})}">입장하기</a></td>
-
       </tr>
       </tbody>
     </table>
